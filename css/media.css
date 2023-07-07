@@ -7,6 +7,7 @@
         height: 32px;
         background: #EAEAEA;
     }
+    
     .header__tools {
         width: 290px;
     }
@@ -40,6 +41,9 @@
 @media (min-width: 1120px) {
     .header {
         display: none;
+    }
+    .services__divider {
+        margin-top: 49px;
     }
     .services__header {
         padding-top: 50px;

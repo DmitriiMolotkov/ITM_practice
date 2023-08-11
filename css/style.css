@@ -7,7 +7,18 @@ h2,
 h3 {
   margin: 0;
 }
-
+.main {
+  @media (min-width: 1440px) {
+    margin-left: 306px;
+  }
+}
+.btn {
+  transition: transform 0.2s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
 .container {
   max-width: 94%;
   margin: 0 auto;
@@ -69,8 +80,10 @@ h3 {
 }
 .scrool {
   display: flex;
+  align-items: center;
   overflow: auto;
-  margin: 24px auto;
+  scroll-snap-type: x mandatory;
+  height: 74px;
 }
 .scrool::-webkit-scrollbar {
   display: none;
@@ -86,6 +99,7 @@ h3 {
   white-space: nowrap;
 }
 .scrool__button:hover {
+  scroll-snap-align: start;
   border: 2px solid #b8ffec;
   border-radius: 6px;
   background-color: #fff;
@@ -100,17 +114,33 @@ h3 {
 .services__text_768 {
   display: none;
 }
-.services__link {
-  display: flex;
-  align-items: center;
-  margin: 16px 0;
-}
-
-.services__link_title {
+.services__click {
+  display: block;
+  margin-bottom: 20px;
   font-size: 16px;
   font-family: "TT Lakes Medium";
   line-height: 24px;
 }
+
+.services__click_show {
+  cursor: pointer;
+}
+.services__click_show::before {
+  content: url(../icons/expand.svg);
+  position: relative;
+  top: 8px;
+  margin-right: 7px;
+}
+.services__click_hide {
+  cursor: pointer;
+}
+.services__click_hide::before {
+  content: url(../icons/expandup.svg);
+  position: relative;
+  top: 8px;
+  margin-right: 7px;
+}
+
 .services__img {
   width: 100%;
   margin-bottom: 34px;
@@ -125,6 +155,9 @@ h3 {
   box-shadow: 16px 0px 52px 0px rgba(14, 24, 80, 0.2),
     -2px 0px 4px 0px rgba(69, 79, 126, 0.02);
   z-index: 1;
+  @media (min-width: 1440px) {
+    display: block;
+  }
 }
 .aside__container {
   width: 280px;
@@ -151,17 +184,36 @@ h3 {
   justify-content: space-between;
 }
 .aside__button {
+  position: relative;
   text-align: left;
   border: none;
   background-color: #fff;
   color: #1b1c21;
   font-family: "TT Lakes Medium";
   font-size: 16px;
-  transition: 0.2s all;
+  transition: all 0.2s;
+}
+
+.aside__button:before {
+  content: "";
+  display: none;
+  width: 4px;
+  height: 32px;
+  border-radius: 0 4px 4px 0;
+  background-color: #41f6d7;
+  position: absolute;
+  top: -5px;
+  left: -23px;
+  transform: scale(0);
+  transition: all 0.2s;
 }
 .aside__button:hover {
   color: #7e7e82;
   filter: opacity(70%);
+}
+.aside__button:hover::before {
+  transform: scale(1);
+  filter: opacity(1);
 }
 .aside__foot {
   margin-bottom: 32px;
@@ -198,6 +250,9 @@ h3 {
 
 .brands {
   background-color: #f8f8f8;
+  @media (min-width: 1440px) {
+    grid-column: 2 / 3;
+  }
 }
 .brands__title {
   padding: 16px 4%;

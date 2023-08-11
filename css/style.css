@@ -203,7 +203,7 @@ h3 {
   background-color: #41f6d7;
   position: absolute;
   top: -5px;
-  left: -23px;
+  left: -20px;
   transform: scale(0);
   transition: all 0.2s;
 }
